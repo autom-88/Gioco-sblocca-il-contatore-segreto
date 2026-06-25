@@ -28,4 +28,8 @@ Questo progetto serve a praticare:
 
 ---
 
-## 🔑 Login di test
+🔑 Login di test
+
+👨‍💻 Autore
+
+Sviluppato da autom-88
