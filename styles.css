@@ -1,0 +1,147 @@
+/* ==========================
+   STILE GENERALE
+========================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    background-color: transparent;
+    margin: 0;
+    padding: 20px;
+    background-image: url('https://cdn.pixabay.com/photo/2020/07/02/04/31/matrix-5361690_960_720.png');
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+h2 {
+    color: #ffffff;
+    margin-top: 30px;
+}
+
+/* ==========================
+   OROLOGIO
+========================== */
+
+#orologio {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* ==========================
+   CONTATORE
+========================== */
+
+#contatore {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.counter-buttons {
+    margin-bottom: 40px;
+}
+
+/* ==========================
+   FORM LOGIN
+========================== */
+
+form {
+    background: white;
+    border: 2px solid #ddd;
+    max-width: 500px;
+    margin: auto;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+.container {
+    padding: 16px;
+    text-align: left;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.avatar {
+    width: 120px;
+    border-radius: 50%;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   BOTTONI
+========================== */
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+button:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+button:disabled {
+    background-color: #999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* ==========================
+   MESSAGGI
+========================== */
+
+#messaggio {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media screen and (max-width: 600px) {
+
+    form {
+        width: 95%;
+    }
+
+    #orologio {
+        font-size: 30px;
+    }
+
+    #contatore {
+        font-size: 40px;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

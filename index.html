@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login con Sblocco Contatore</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<h1>Area Riservata</h1>
+
+<h2>Orologio Digitale</h2>
+<div id="orologio">00:00:00</div>
+
+<h2>Contatore Protetto</h2>
+
+<div id="contatore">0</div>
+
+<div class="counter-buttons">
+    <button id="start" disabled>Start</button>
+    <button id="stop" disabled>Stop</button>
+    <button id="reset" disabled>Reset</button>
+</div>
+
+<h2>Login</h2>
+
+<form id="mioform">
+
+    <div class="imgcontainer">
+        <img
+        src="https://cdn.dribbble.com/userupload/36511681/file/original-a0f3044717b0f369307538902ded7249.jpg?resize=752x&vertical=center"
+        alt="Avatar"
+        class="avatar">
+    </div>
+
+    <div class="container">
+
+        <label for="uname">
+            <b>Username</b>
+        </label>
+
+        <input
+        type="text"
+        id="uname"
+        name="uname"
+        placeholder="Inserisci username"
+        required>
+
+        <label for="psw">
+            <b>Password</b>
+        </label>
+
+        <input
+        type="password"
+        id="psw"
+        name="psw"
+        placeholder="Inserisci password"
+        required>
+
+        <button type="submit">
+            Login
+        </button>
+
+        <p id="messaggio"></p>
+
+    </div>
+
+</form>
+
+<script>
+
+/* ======================
+   LOGIN
+====================== */
+
+const mioForm = document.getElementById("mioform");
+
+const startBtn = document.getElementById("start");
+const stopBtn = document.getElementById("stop");
+const resetBtn = document.getElementById("reset");
+
+mioForm.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const username = document.getElementById("uname").value;
+    const password = document.getElementById("psw").value;
+
+    if(username === "admin" &&
+       password === "1234"){
+
+        document.getElementById("messaggio").textContent =
+        "✓ Accesso consentito";
+
+        document.getElementById("messaggio").style.color =
+        "green";
+
+        startBtn.disabled = false;
+        stopBtn.disabled = false;
+        resetBtn.disabled = false;
+
+    } else {
+
+        document.getElementById("messaggio").textContent =
+        "✗ Credenziali non valide";
+
+        document.getElementById("messaggio").style.color =
+        "red";
+
+        startBtn.disabled = true;
+        stopBtn.disabled = true;
+        resetBtn.disabled = true;
+    }
+
+});
+
+
+/* ======================
+   CONTATORE
+====================== */
+
+let conteggio = 0;
+let timer = null;
+
+const display =
+document.getElementById("contatore");
+
+startBtn.addEventListener("click", () => {
+
+    if(timer === null){
+
+        timer = setInterval(() => {
+
+            conteggio++;
+
+            display.textContent = conteggio;
+
+        }, 1000);
+
+    }
+
+});
+
+stopBtn.addEventListener("click", () => {
+
+    clearInterval(timer);
+
+    timer = null;
+
+});
+
+resetBtn.addEventListener("click", () => {
+
+    clearInterval(timer);
+
+    timer = null;
+
+    conteggio = 0;
+
+    display.textContent = conteggio;
+
+});
+
+
+/* ======================
+   OROLOGIO
+====================== */
+
+function aggiornaOrologio(){
+
+    const now = new Date();
+
+    const ore =
+    String(now.getHours()).padStart(2,"0");
+
+    const minuti =
+    String(now.getMinutes()).padStart(2,"0");
+
+    const secondi =
+    String(now.getSeconds()).padStart(2,"0");
+
+    document.getElementById("orologio").textContent =
+    `${ore}:${minuti}:${secondi}`;
+}
+
+aggiornaOrologio();
+
+setInterval(
+    aggiornaOrologio,
+    1000
+);
+
+</script>
+
+</body>
+</html>
